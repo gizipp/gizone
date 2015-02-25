@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  path: MyString
+  whitelist: false
+  blacklist: false
+  unreachable: false
+
+two:
+  path: MyString
+  whitelist: false
+  blacklist: false
+  unreachable: false

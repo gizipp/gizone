@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @link.path %>
+</p>
+
+<p>
+  <strong>Whitelist:</strong>
+  <%= @link.whitelist %>
+</p>
+
+<p>
+  <strong>Blacklist:</strong>
+  <%= @link.blacklist %>
+</p>
+
+<p>
+  <strong>Unreachable:</strong>
+  <%= @link.unreachable %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
