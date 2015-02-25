@@ -61,20 +61,6 @@ class BlogsController < ApplicationController
     end
   end
 
-  protected
-    def fetch_links
-      Blog.all.each { |blog|
-        @page = MetaInspector.new(blog.domain,
-                :warn_level => :store,
-                :connection_timeout => 5, :read_timeout => 5,
-                :headers => { 'User-Agent' => user_agent })
-        @page.links.internal.each do |link|
-          uri = URI(link)
-          path << uri.path
-        end
-      }
-    end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
@@ -84,9 +70,5 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:domain, :depth)
-    end
-
-    def user_agent
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.111 Safari/537.36"
     end
 end

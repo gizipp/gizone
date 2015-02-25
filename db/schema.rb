@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 20150225140721) do
     t.boolean  "whitelist",   default: false
     t.boolean  "blacklist",   default: false
     t.boolean  "unreachable", default: false
+    t.integer  "blog_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
+  add_index "links", ["blog_id"], name: "index_links_on_blog_id"
   add_index "links", ["path"], name: "index_links_on_path", unique: true
 
   create_table "sites", force: :cascade do |t|
