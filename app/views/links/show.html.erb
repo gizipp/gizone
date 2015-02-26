@@ -20,5 +20,5 @@
   <%= @link.unreachable %>
 </p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Edit', edit_blog_link_path(@link.blog_id, @link.id) %> |
+<%= link_to 'Back', blog_links_path %>

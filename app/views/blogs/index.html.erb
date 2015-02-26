@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Blog</h1>
+<h1>Blog Statistics</h1>
 
 <table>
   <thead>
     <tr>
       <th>Domain</th>
       <th>Count_of_crawled</th>
-      <th colspan="3"></th>
+      <th>Indexed Links</th>
     </tr>
   </thead>
 
@@ -16,14 +16,8 @@
       <tr>
         <td><%= blog.domain %></td>
         <td><%= blog.num_of_crawled %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to blog.links_count, blog_links_path(blog) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>

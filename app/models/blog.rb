@@ -3,6 +3,10 @@ class Blog < ActiveRecord::Base
   has_many :articles
   scope :fresh, -> { where(num_of_crawled: 0) }
 
+  def links_count
+     Link.where(blog_id: self.id).count
+  end
+
   def self.fetch_links
     paths = []
     self.fresh.each do |blog|

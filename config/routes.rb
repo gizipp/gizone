@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :blogs do
+    resources :links
+  end
+
   resources :articles
-
-  resources :links
-
-  resources :blogs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

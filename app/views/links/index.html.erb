@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Links</h1>
+<h1><%= "("+@links.first.blog.links_count.to_s+" links)"+@links.first.blog.domain %></h1>
+<h1><%= "("+@links.first.blog.links_count.to_s+" links)"+@links.first.blog.domain %></h1>
 
 <table>
   <thead>
@@ -10,21 +11,19 @@
       <th>Blacklist</th>
       <th>Unreachable</th>
       <th>Blog</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link.path %></td>
+        <td><%= link_to link.path, link.blog.domain+link.path %></td>
         <td><%= link.whitelist %></td>
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
         <td><%= link.blog.domain %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', blog_links_path(link) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Link', new_link_path %>
+<%= link_to 'New Link', new_blog_link_path %>
