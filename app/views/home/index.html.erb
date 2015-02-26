@@ -1,3 +1,19 @@
+<%
+uri = URI('http://gizipp.com/')
+params = { :limit => 10, :page => 3 }
+uri.query = URI.encode_www_form(params)
+
+res = Net::HTTP.get_response(uri)
+puts res.body if res.is_a?(Net::HTTPSuccess)
+%>
+
+
+
+
+
+
+
+
 <div class="hero-unit">
 <h1>MetaInspector results for:</h1>
 <h2 style="margin-bottom:6px;"><%= @page.url %></h2>
