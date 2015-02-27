@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= "("+@links.first.blog.links_count.to_s+" links)"+@links.first.blog.domain %></h1>
-<h1><%= "("+@links.first.blog.links_count.to_s+" links)"+@links.first.blog.domain %></h1>
 
 <table>
   <thead>
@@ -11,7 +10,7 @@
       <th>Blacklist</th>
       <th>Unreachable</th>
       <th>Blog</th>
-      <th colspan="1"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -23,7 +22,8 @@
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
         <td><%= link.blog.domain %></td>
-        <td><%= link_to 'Show', blog_links_path(link) %></td>
+        <td><%= link_to 'Show', blog_link_path(link.blog_id,link.id) %></td>
+        <td><%= link_to 'Edit', edit_blog_link_path(link.blog_id,link.id) %></td>
       </tr>
     <% end %>
   </tbody>

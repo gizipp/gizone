@@ -1,4 +1,4 @@
-<%= form_for(@link) do |f| %>
+<%= form_for(@link, url: blog_link_path) do |f| %>
   <% if @link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
