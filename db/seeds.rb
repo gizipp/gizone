@@ -6,8 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 Blog.create(domain: 'backpackstory.me')
 Blog.create(domain: 'ndorokakung.com')
 Blog.create(domain: 'missviona.blogspot.com')
 Blog.create(domain: 'radityadika.com')
+Blog.create(domain: 'www.kalipengging.com')
+Blog.create(domain: 'www.andreasharsono.net')
+Blog.create(domain: 'zulhaq.com')
+Blog.create(domain: 'www.salsabeela.com')
+Blog.create(domain: 'www.shitlicious.com')
+Blog.create(domain: 'letthebeastin.blogspot.com')
