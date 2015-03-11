@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
+  require 'open-uri'
+
   belongs_to :blog
   scope :white, -> { where(whitelist: true) }
 

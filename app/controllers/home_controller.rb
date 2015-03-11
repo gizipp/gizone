@@ -4,6 +4,6 @@ class HomeController < ApplicationController
 
   def search
     @articles = Article.search(params[:q]).records
-    render action: "index"
+    render action: "search"
   end
 end
