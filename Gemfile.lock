@@ -1,3 +1,26 @@
+GIT
+  remote: git://github.com/elasticsearch/elasticsearch-rails.git
+  revision: b40479d371836f303dd8aaabed33a75d5de2898f
+  specs:
+    elasticsearch-model (0.1.6)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.6)
+
+GIT
+  remote: git://github.com/elasticsearch/elasticsearch-ruby.git
+  revision: 972a45d4b762da2dadf1dd6e995b7407fe790211
+  specs:
+    elasticsearch (1.0.8)
+      elasticsearch-api (= 1.0.7)
+      elasticsearch-transport (= 1.0.7)
+    elasticsearch-api (1.0.7)
+      multi_json
+    elasticsearch-transport (1.0.7)
+      faraday
+      multi_json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,14 +93,6 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
-    elasticsearch (1.0.6)
-      elasticsearch-api (= 1.0.6)
-      elasticsearch-transport (= 1.0.6)
-    elasticsearch-api (1.0.6)
-      multi_json
-    elasticsearch-transport (1.0.6)
-      faraday
-      multi_json
     erubis (2.7.0)
     execjs (2.3.0)
     faraday (0.9.1)
@@ -223,6 +238,9 @@ DEPENDENCIES
   byebug
   cancancan
   devise
+  elasticsearch!
+  elasticsearch-model!
+  elasticsearch-rails!
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails

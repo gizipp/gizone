@@ -1,1 +1,5 @@
-This is search
+<%= form_tag search_articles_path, method: 'get' do %>
+<%= label_tag :query %>
+<%= text_field_tag :q, params[:q] %>
+<%= submit_tag :search %>
+<% end %>

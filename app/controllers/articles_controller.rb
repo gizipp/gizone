@@ -61,6 +61,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # GET /articles/search
+  def search
+    @articles = Article.search(params[:q]).records
+    render action: "index"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
