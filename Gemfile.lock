@@ -73,13 +73,6 @@ GEM
     celluloid (0.16.0)
       timers (~> 4.0.0)
     chronic (0.10.2)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.9.1)
     columnize (0.9.0)
     connection_pool (2.1.1)
     debug_inspector (0.0.2)
@@ -94,7 +87,6 @@ GEM
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    execjs (2.3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     faraday-cookie_jar (0.0.6)
@@ -220,8 +212,6 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -261,6 +251,5 @@ DEPENDENCIES
   spring
   sqlite3
   therubyracer
-  turbolinks
   web-console (~> 2.0)
   whenever
