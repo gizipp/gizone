@@ -2,6 +2,7 @@ class Link < ActiveRecord::Base
   require 'open-uri'
 
   belongs_to :blog
+  has_one :article
   scope :white, -> { where(whitelist: true) }
 
   def self.fetch_article
