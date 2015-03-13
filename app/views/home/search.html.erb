@@ -17,14 +17,25 @@
         <%= image_tag article.img, class: 'img-responsive' %>
       </div>
       <div class="col-xs-10">
-        <h4><%= link_to article.title, article.url %></h4>
-        <p><%= article.desc %></p>
+        <h4><%= link_to article.try(:highlight).try(:title) ? article.highlight.title[0].html_safe : article.title,
+          controller: "articles",
+          action: "show",
+          id: article.id%></h4>
+          <p>
+        <% if article.try(:highlight).try(:content) %>
+          <% article.highlight.content.each do |snippet| %>
+            <%= snippet.html_safe %>
+          <% end %>
+          ...</p>
+        <% end %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="pagination">
+
+
+<!-- <div class="pagination">
   <ul>
     <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
     <li class="active"><a href="#fakelink">1</a></li>
@@ -37,6 +48,6 @@
     <li><a href="#fakelink">8</a></li>
     <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
   </ul>
-</div>
+</div> -->
 
-<%= will_paginate @articles %>
+<%# will_paginate @articles %>

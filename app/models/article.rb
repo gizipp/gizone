@@ -1,7 +1,5 @@
 class Article < ActiveRecord::Base
+  self.per_page = 2
+  include Searchable
   belongs_to :link
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-  Article.import
 end
