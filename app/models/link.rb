@@ -13,7 +13,7 @@ class Link < ActiveRecord::Base
                 :connection_timeout => 5, :read_timeout => 5)
         a = Link.scrap('http://'+link.blog.domain.to_s+link.path.to_s, link.blog.title_selector, link.blog.content_selector)
         article = Article.new
-        article.title = @article.best_title.blank? ? a[:title] : @article.best_title
+        article.title = a[:title].present? ? a[:title] : @article.best_title
         article.desc =  @article.description
         article.content = a[:content]
         article.img = @article.images.best
