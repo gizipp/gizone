@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150313002441) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.string   "desc"
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150313002441) do
     t.integer  "link_id"
   end
 
-  add_index "articles", ["link_id"], name: "index_articles_on_link_id"
-  add_index "articles", ["url"], name: "index_articles_on_url", unique: true
+  add_index "articles", ["link_id"], name: "index_articles_on_link_id", using: :btree
+  add_index "articles", ["url"], name: "index_articles_on_url", unique: true, using: :btree
 
   create_table "blogs", force: :cascade do |t|
     t.string   "domain"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150313002441) do
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "blogs", ["domain"], name: "index_blogs_on_domain", unique: true
+  add_index "blogs", ["domain"], name: "index_blogs_on_domain", unique: true, using: :btree
 
   create_table "links", force: :cascade do |t|
     t.string   "path"
@@ -46,7 +49,8 @@ ActiveRecord::Schema.define(version: 20150313002441) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_index "links", ["blog_id"], name: "index_links_on_blog_id"
-  add_index "links", ["path"], name: "index_links_on_path", unique: true
+  add_index "links", ["blog_id"], name: "index_links_on_blog_id", using: :btree
+  add_index "links", ["path"], name: "index_links_on_path", unique: true, using: :btree
 
+  add_foreign_key "articles", "links"
 end
