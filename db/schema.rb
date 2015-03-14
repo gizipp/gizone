@@ -32,9 +32,11 @@ ActiveRecord::Schema.define(version: 20150313002441) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "domain"
-    t.integer  "num_of_crawled", default: 0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "title_selector"
+    t.string   "content_selector"
+    t.integer  "num_of_crawled",   default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "blogs", ["domain"], name: "index_blogs_on_domain", unique: true, using: :btree

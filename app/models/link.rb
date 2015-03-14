@@ -11,7 +11,7 @@ class Link < ActiveRecord::Base
         @article = MetaInspector.new('http://'+link.blog.domain.to_s+link.path.to_s,
                 :warn_level => :store,
                 :connection_timeout => 5, :read_timeout => 5)
-        a = Link.scrap('http://'+link.blog.domain.to_s+link.path.to_s)
+        a = Link.scrap('http://'+link.blog.domain.to_s+link.path.to_s, link.blog.title_selector, link.blog.content_selector)
         article = Article.new
         article.title = @article.best_title.blank? ? a[:title] : @article.best_title
         article.desc =  @article.description
