@@ -30,7 +30,17 @@ class Link < ActiveRecord::Base
       doc.css('script, link').each { |node| node.remove }
       result = {
         title: doc.css(title_selector).text.split.join(" "),
-        content: doc.css(content_selector).text.split.join(" ")
+        content: add_paragraphs(doc.css(content_selector).text.split.join(" "))
         }
+    end
+
+    def self.add_paragraphs(body)
+      response = ""
+      body.split(/\n/).each do |line|
+        if(line != "")
+          response += "<p>" + line + "</p>\n"
+        end
+      end
+      return response
     end
 end

@@ -22,6 +22,15 @@ Blog.create(domain: 'www.kalipengging.com',
             title_selector: '#main > article > div.entry-wrapper > header > h1',
             content_selector: '#main > article > div.entry-wrapper > div.entry-content > p')
 Blog.create(domain: 'www.andreasharsono.net')
+Blog.create(domain: 'rifatnajmi.com/blog')
+Blog.create(domain: 'giewahyudi.com')
+Blog.create(domain: 'isnuansa.com')
+Blog.create(domain: 'dimasnovriandi.com')
+Blog.create(domain: 'blontankpoer.my.id')
+Blog.create(domain: 'venus-to-mars.com')
+Blog.create(domain: 'dee-idea.blogspot.com')
+Blog.create(domain: 'www.kevinanggara.com')
+Blog.create(domain: 'chikastuff.wordpress.com')
 Blog.create(domain: 'www.benablog.com',
             title_selector: '#Blog1 > div.blog-posts.hfeed > div > div > div > div.post > h3',
             content_selector: '#postingan')
