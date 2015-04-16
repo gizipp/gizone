@@ -25,8 +25,9 @@
         <% if article.try(:highlight).try(:content) %>
           <% article.highlight.content.each do |snippet| %>
             <%= snippet.html_safe %>
+          ...
           <% end %>
-          ...</p>
+          </p>
         <% end %>
       </div>
     </div>

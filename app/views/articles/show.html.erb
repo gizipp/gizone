@@ -1,29 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h2>
   <%= @article.title %>
-</p>
+</h2>
 
 <p>
-  <strong>Desc:</strong>
-  <%= @article.desc %>
+  <%= image_tag @article.img, class: 'img-responsive' %>
 </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
+<%= raw(@article.content.truncate(500, omission: '... <a href="'+@article.url+'">(continued)</a>')) %>
 
-<p>
-  <strong>Img:</strong>
-  <%= @article.img %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @article.url %>
-</p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', articles_path %>
