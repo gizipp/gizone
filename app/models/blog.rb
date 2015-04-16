@@ -1,6 +1,6 @@
 class Blog < ActiveRecord::Base
   has_many :links
-  has_many :articles
+  has_many :articles, through: :links
   scope :fresh, -> { where(num_of_crawled: 0) }
 
   def links_count
