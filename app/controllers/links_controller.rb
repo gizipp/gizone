@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:show, :edit, :update, :destroy, :update_whitelist]
 
   # GET /links
   # GET /links.json
@@ -46,6 +46,18 @@ class LinksController < ApplicationController
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_whitelist
+    respond_to do |format|
+      if @link.update(whitelist: params[:whitelist])
+        format.html { render :edit, notice: 'Link was successfully updated.' }
+        format.json { render :show, status: :ok, location: @link }
+      else
+        format.html { render :edit, notice: 'Link was unsuccessfully updated.' }
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end

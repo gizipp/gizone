@@ -18,7 +18,7 @@
     <% @links.each do |link| %>
       <tr>
         <td><%= link_to link.path, link.blog.domain+link.path %></td>
-        <td><%= link.whitelist %></td>
+        <td><%= check_box_tag 'whitelist', link.id, link.whitelist, id: 'whitelist_'+link.id.to_s %></td>
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
         <td><%= link.blog.domain %></td>
@@ -32,3 +32,14 @@
 <br>
 
 <%= link_to 'New Link', new_blog_link_path %>
+
+<script type="text/javascript">
+  var blog_id = <%= params[:blog_id] %>
+  $("[id^=whitelist]").change(function() {
+      $.ajax({
+        url: '/blogs/'+blog_id+'/links/'+this.value+'/update_whitelist?whitelist='+(this.checked ? 1 : 0),
+        method: "post",
+        dataType: "script"
+      })
+  });
+</script>

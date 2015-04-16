@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :blogs do
-    resources :links
+    resources :links do
+      member do
+        post 'update_whitelist'
+      end
+    end
   end
 
   resources :articles do
