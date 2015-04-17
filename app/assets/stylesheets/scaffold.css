@@ -54,3 +54,11 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+header {
+  background-color: #ecf0f1;
+}
+
+#button-search {
+  background-color: #1abc9c;
+}
