@@ -21,6 +21,16 @@ GIT
       faraday
       multi_json
 
+GIT
+  remote: git://github.com/mongoid/mongoid.git
+  revision: cc69597eedb41e8b7e07d485f5095ae4ccbbbe22
+  specs:
+    mongoid (4.0.2)
+      activemodel (~> 4.0)
+      moped (~> 2.0.0)
+      origin (~> 2.1)
+      tzinfo (>= 0.3.37)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,6 +74,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bson (2.3.0)
+    bson_ext (1.5.1)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -142,10 +154,19 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    mongoid-slug (4.0.0)
+      mongoid (>= 3.0)
+      stringex (~> 2.0)
+    moped (2.0.4)
+      bson (~> 2.2)
+      connection_pool (~> 2.0)
+      optionable (~> 0.2.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    optionable (0.2.0)
+    origin (2.1.1)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -224,6 +245,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    stringex (2.5.2)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -253,6 +275,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bson_ext
   byebug
   cancancan
   devise
@@ -263,6 +286,8 @@ DEPENDENCIES
   jquery-rails
   kaminari
   metainspector
+  mongoid (~> 4)!
+  mongoid-slug
   nokogiri
   paperclip (~> 4.2)
   pg

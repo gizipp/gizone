@@ -1,10 +1,21 @@
-class Blog < ActiveRecord::Base
+class Blog
+  include Mongoid::Document
+  include Mongoid::Slug
+  include Mongoid::Timestamps
+
   has_many :links
-  has_many :articles, through: :links
+  has_many :articles
   scope :fresh, -> { where(num_of_crawled: 0) }
 
+  field :domain, type: String
+  field :title_selector, type: String
+  field :content_selector, type: String
+  field :num_of_crawled, type: Boolean
+
+  slug :domain
+
   def links_count
-     Link.where(blog_id: self.id).count
+    Link.where(blog_id: self.id).count
   end
 
   def self.fetch_links

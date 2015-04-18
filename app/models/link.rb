@@ -1,9 +1,17 @@
-class Link < ActiveRecord::Base
+class Link
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
   require 'open-uri'
 
   belongs_to :blog
   has_one :article
   scope :white, -> { where(whitelist: true) }
+
+  field :path, type: String
+  field :whitelist, type: Boolean
+  field :blacklist, type: Boolean
+  field :unreachable, type: Boolean
 
   def self.fetch_article
     self.white.each do |link|

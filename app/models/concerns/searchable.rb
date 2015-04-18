@@ -31,4 +31,8 @@ module Searchable
       })
     end
   end
+
+  def as_indexed_json(options={})
+    as_json()
+  end
 end
