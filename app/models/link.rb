@@ -9,9 +9,9 @@ class Link
   scope :white, -> { where(whitelist: true) }
 
   field :path, type: String
-  field :whitelist, type: Boolean
-  field :blacklist, type: Boolean
-  field :unreachable, type: Boolean
+  field :whitelist, type: Boolean, default: false
+  field :blacklist, type: Boolean, default: false
+  field :unreachable, type: Boolean, default: false
 
   def self.fetch_article
     self.white.each do |link|

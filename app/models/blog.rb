@@ -10,7 +10,7 @@ class Blog
   field :domain, type: String
   field :title_selector, type: String
   field :content_selector, type: String
-  field :num_of_crawled, type: Boolean
+  field :num_of_crawled, type: Integer, default: 0
 
   slug :domain
 
@@ -35,8 +35,7 @@ class Blog
         Link.where(path: path).first_or_create(blog_id: blog.id)
       end
 
-      self.update(blog.id,num_of_crawled: blog.num_of_crawled+1)
-
+      self.add_one_num_of_crawled(blog.id, blog.num_of_crawled)
       # blog.depth.to_i.times do
       #   Link.where(blog_id: blog.id).each do |url|
       #     paths_tmp = []
@@ -57,5 +56,10 @@ class Blog
       #   Link.where(path: path).first_or_create(blog_id: blog.id)
       # end
     end
+  end
+
+  def self.add_one_num_of_crawled(blog_id, num_of_crawled)
+    blog = self.find(blog_id)
+    blog.update_attribute(:num_of_crawled, num_of_crawled + 1)
   end
 end

@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.where(blog_id: params[:blog_id])
+    @links = Link.where(blog_id: Blog.find(params[:blog_id]))
   end
 
   # GET /links/1
