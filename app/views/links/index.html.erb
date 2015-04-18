@@ -9,7 +9,6 @@
       <th>Whitelist</th>
       <th>Blacklist</th>
       <th>Unreachable</th>
-      <th>Blog</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -21,7 +20,6 @@
         <td><%= check_box_tag 'whitelist', link.id, link.whitelist, id: 'whitelist_'+link.id.to_s %></td>
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
-        <td><%= link.blog.domain %></td>
         <td><%= link_to 'Show', blog_link_path(link.blog_id,link.id) %></td>
         <td><%= link_to 'Edit', edit_blog_link_path(link.blog_id,link.id) %></td>
       </tr>
