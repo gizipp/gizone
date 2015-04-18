@@ -12,7 +12,10 @@ class Blog
   field :content_selector, type: String
   field :num_of_crawled, type: Integer, default: 0
 
-  slug :domain
+  slug :domain do |cur_object|
+    blacklist = ['dot', 'slash', 'www']
+    cur_object.slug_builder.to_url.split("-").reject{ |c| blacklist.include?c }.join("-")
+  end
 
   def self.without_links
     @blogs_zero_links = []
