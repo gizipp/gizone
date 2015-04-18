@@ -35,7 +35,8 @@ class Blog
         Link.where(path: path).first_or_create(blog_id: blog.id)
       end
 
-      self.add_one_num_of_crawled(blog.id, blog.num_of_crawled)
+      self.add_one_num_of_crawled(blog.id, blog.num_of_crawled) if paths.uniq.count != 0
+
       # blog.depth.to_i.times do
       #   Link.where(blog_id: blog.id).each do |url|
       #     paths_tmp = []
