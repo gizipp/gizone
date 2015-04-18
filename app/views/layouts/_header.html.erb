@@ -1,0 +1,19 @@
+<header class="navbar navbar-static-top" id="top" role="banner">
+  <div class="container">
+
+    <%= form_tag search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search' do %>
+      <div class="form-group">
+        <div class="input-group">
+
+          <%= text_field_tag :q, params[:q], class: 'form-control' %>
+
+          <span class="input-group-btn">
+            <button type="submit" class="btn"><span class="fui-search"></span></button>
+          </span>
+
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</header>

@@ -62,3 +62,16 @@ header {
 #button-search {
   background-color: #1abc9c;
 }
+
+#home-label {
+  font-size: 132px;
+  line-height: 1.72222;
+  margin: 0 0 15px;
+  font-family: 'Anton', sans-serif;
+  color: #1abc9c;
+}
+
+#header-label {
+  font-family: 'Anton', sans-serif;
+  color: #1abc9c;
+}

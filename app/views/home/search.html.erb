@@ -1,5 +1,9 @@
-<div id="search-result">
+<div class="row text-right">
+  <%= paginate @articles %>
   <p>Ditemukan <%= @articles.count %> artikel.</p>
+</div>
+
+<div id="search-result">
   <% @articles.each do |article| %>
     <div class="row">
       <div class="col-xs-2">
@@ -23,10 +27,8 @@
   <% end %>
 </div>
 
-<%= paginate @articles %>
 
-
-<div class="pagination">
+<!-- <div class="pagination">
   <ul>
     <li class="previous"><a href="#fakelink" class="fui-arrow-left"></a></li>
     <li class="active"><a href="#fakelink">1</a></li>
@@ -40,5 +42,5 @@
     <li class="next"><a href="#fakelink" class="fui-arrow-right"></a></li>
   </ul>
 </div>
-
+ -->
 <%# will_paginate @articles %>
