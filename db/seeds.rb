@@ -18,10 +18,10 @@ Blog.create(domain: 'missviona.blogspot.com',
 Blog.create(domain: 'radityadika.com',
             title_selector: '#pagewrap > div.content > article > h1',
             content_selector: '#pagewrap > div.content > article > div.entry-content')
-Blog.create(domain: 'www.kalipengging.com',
+Blog.create(domain: 'kalipengging.com',
             title_selector: '#main > article > div.entry-wrapper > header > h1',
             content_selector: '#main > article > div.entry-wrapper > div.entry-content > p')
-Blog.create(domain: 'www.andreasharsono.net')
+Blog.create(domain: 'andreasharsono.net')
 Blog.create(domain: 'rifatnajmi.com/blog')
 Blog.create(domain: 'giewahyudi.com')
 Blog.create(domain: 'isnuansa.com')
@@ -29,17 +29,17 @@ Blog.create(domain: 'dimasnovriandi.com')
 Blog.create(domain: 'blontankpoer.my.id')
 Blog.create(domain: 'venus-to-mars.com')
 Blog.create(domain: 'dee-idea.blogspot.com')
-Blog.create(domain: 'www.kevinanggara.com')
+Blog.create(domain: 'kevinanggara.com')
 Blog.create(domain: 'chikastuff.wordpress.com')
-Blog.create(domain: 'www.benablog.com',
+Blog.create(domain: 'benablog.com',
             title_selector: '#Blog1 > div.blog-posts.hfeed > div > div > div > div.post > h3',
             content_selector: '#postingan')
 Blog.create(domain: 'zulhaq.com',
             title_selector: '#content > article > header > h1',
             content_selector: '#content > article > div.entry-content')
-Blog.create(domain: 'www.salsabeela.com',
+Blog.create(domain: 'salsabeela.com',
             title_selector: '#page > div.main-container > div > div.column-one > article > header > h2',
             content_selector: '#page > div.main-container > div > div.column-one > article > div.entry-content')
-Blog.create(domain: 'www.shitlicious.com',
+Blog.create(domain: 'shitlicious.com',
             title_selector: '#Blog1 > div.blog-posts.hfeed > div > div > div > article > div > div > header > h1 > a',
             content_selector: '#Blog1 > div.blog-posts.hfeed > div > div > div > article > div > div > div.post-content')
