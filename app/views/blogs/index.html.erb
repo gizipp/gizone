@@ -8,6 +8,7 @@
       <th>Domain</th>
       <th>Number Of Crawled</th>
       <th>Crawled Links</th>
+      <th>Whitelist Links</th>
       <th>Indexed Links</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= blog.domain %></td>
         <td><%= blog.num_of_crawled %></td>
         <td><%= link_to blog.links_count, blog_links_path(blog) %></td>
+        <td><%= blog.links.white.count %></td>
         <td><%= blog.articles.count %></td>
       </tr>
     <% end %>
