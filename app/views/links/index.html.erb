@@ -32,7 +32,7 @@
 <%= link_to 'New Link', new_blog_link_path %>
 
 <script type="text/javascript">
-  var blog_id = <%= params[:blog_id] %>
+  var blog_id = '<%= params[:blog_id] %>';
   $("[id^=whitelist]").change(function() {
       $.ajax({
         url: '/blogs/'+blog_id+'/links/'+this.value+'/update_whitelist?whitelist='+(this.checked ? 1 : 0),
