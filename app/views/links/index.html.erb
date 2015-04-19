@@ -16,7 +16,7 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link_to link.path, link.blog.domain+link.path %></td>
+        <td><%= link_to link.path, 'http://'+link.blog.domain+link.path %></td>
         <td><%= check_box_tag 'whitelist', link.id, link.whitelist, id: 'whitelist_'+link.id.to_s %></td>
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
