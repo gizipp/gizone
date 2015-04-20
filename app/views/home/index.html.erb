@@ -3,15 +3,23 @@
 </br>
 </br>
 </br>
-
-<div class="row text-center">
-  <a href="http://google.com/search?q=gibipp" id="home-label">GIBIPP</a>
+</br>
+</br>
+</br>
+</br>
+<div class="row">
+    <div class="col-lg-12">
+      <a href="http://google.com/search?q=gibipp" ><img src="/logo.png" class="img-responsive center-block"/></a>
+    </div>
 </div>
 
+</br>
+</br>
+
 <div class="row">
-  <%= form_tag search_path, method: 'get' do %>
     <div class="col-lg-12">
+  <%= form_tag search_path, method: 'get' do %>
         <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: "Search for..."%>
-    </div>
   <% end %>
+    </div>
 </div>

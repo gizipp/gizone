@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require flat-ui
 //= require turbolinks
-//= require_tree .
