@@ -1,7 +1,7 @@
 class Article
-  # include Mongoid::Slug
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
 
   include Searchable
   belongs_to :link
@@ -14,5 +14,5 @@ class Article
   field :img, type: String
   field :url, type: String
 
-  # slug :title
+  slug :title
 end
