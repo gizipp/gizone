@@ -94,3 +94,7 @@ header {
   font-family: 'Anton', sans-serif;
   color: #1abc9c;
 }
+
+em {
+  background: yellow;
+}

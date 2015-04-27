@@ -33,6 +33,6 @@ module Searchable
   end
 
   def as_indexed_json(options={})
-    as_json()
+    as_json(except: [:id, :_id])
   end
 end
