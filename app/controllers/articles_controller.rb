@@ -10,6 +10,8 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
+    redirect_to_good_slug(@article) and return if bad_slug?(@article)
   end
 
   # GET /articles/new
@@ -76,5 +78,15 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :desc, :content, :img, :url, :link_id)
+    end
+
+    # Check if the current slug is not the cannonical one.
+    def bad_slug?(object)
+      params[:id] != object.slug
+    end
+
+    # 301 redirect to canonical slug.
+    def redirect_to_good_slug(object)
+      redirect_to "/articles/"+object.slug, status: :moved_permanently
     end
 end
