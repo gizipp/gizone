@@ -8,7 +8,7 @@ class Article
   belongs_to :link
   belongs_to :blog
   has_mongoid_attached_file :thumbnail,
-                    :path => 'thumbnail/:id/:style.:extension',
+                    :path => 'thumbnails/:id/:style.:extension',
                     :storage => :s3,
                     :styles => { :original => ['150x150']},
                     :url => ':s3_domain_url',

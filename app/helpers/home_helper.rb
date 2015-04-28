@@ -14,4 +14,9 @@ module HomeHelper
   def links_to_li(links)
     links.map { |link| "<li><a href='#{link}'>#{link}</a></li>" }.join("\n")
   end
+
+  def id_to_thumbnail(id)
+    article = Article.find(id)
+    return article.thumbnail.url
+  end
 end
