@@ -1,0 +1,9 @@
+development:
+  bucket: gibipp
+  access_key_id: AKIAIOFGPE3KIR7Q3DLQ
+  secret_access_key: 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
+
+production:
+  bucket: gibipp
+  access_key_id: <%= ENV['S3_KEY'] %>
+  secret_access_key: <%= ENV['S3_SECRET'] %>

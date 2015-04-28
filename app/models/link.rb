@@ -71,6 +71,7 @@ class Link
     a.desc =  webpage.description
     a.content = content[:body]
     a.img = webpage.images.best
+    a.thumbnail = webpage.images.best
     a.url = self.full_path
     a.link_id = self.id
     a.blog_id = self.blog_id

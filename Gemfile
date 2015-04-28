@@ -52,7 +52,6 @@ gem 'searchkick'
 gem 'nokogiri'
 gem 'metainspector'
 gem 'whenever'
-gem "paperclip", "~> 4.2"
 gem 'kaminari'
 gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
@@ -60,3 +59,7 @@ gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-ra
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'bson_ext'
 gem 'mongoid-slug'
+gem "paperclip", "~> 4.2"
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem "aws-s3", :require => "aws/s3"
+gem 'aws-sdk', '~> 1.3.4'
