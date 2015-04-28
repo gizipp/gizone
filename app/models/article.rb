@@ -10,7 +10,7 @@ class Article
   has_mongoid_attached_file :thumbnail,
                     :path => 'thumbnails/:id/:style.:extension',
                     :storage => :s3,
-                    :styles => { :original => ['150x150']},
+                    :styles => { :original => ['150x150#']},
                     :url => ':s3_domain_url',
                     :s3_host_name => 's3-ap-southeast-1.amazonaws.com',
                     :s3_credentials => File.join(Rails.root, 'config', 's3.yml')
