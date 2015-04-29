@@ -44,9 +44,12 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-flat-ui'
+end
+
 gem 'devise'
 gem 'cancancan'
-gem 'rails-assets-flat-ui'
 gem 'sidekiq'
 gem 'searchkick'
 gem 'nokogiri'
