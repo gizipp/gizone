@@ -1,6 +1,7 @@
 <header class="navbar navbar-fixed-top" id="top" role="banner">
   <div class="container">
 
+
     <%= form_tag search_path, method: 'get', class: 'navbar-form navbar-left', role: 'search' do %>
       <div class="form-group">
         <div class="input-group">
@@ -15,5 +16,15 @@
       </div>
     <% end %>
 
+    <nav class="collapse navbar-collapse bs-navbar-collapse">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "Keluar", new_user_session_path%>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
