@@ -21,7 +21,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% if user_signed_in? %>
-            <%= link_to "Keluar", new_user_session_path%>
+            <%= link_to "Keluar", destroy_user_session_path, :method => :delete %>
           <% end %>
         </li>
       </ul>

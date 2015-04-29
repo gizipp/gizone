@@ -87,6 +87,6 @@ class ArticlesController < ApplicationController
 
     # 301 redirect to canonical slug.
     def redirect_to_good_slug(object)
-      redirect_to "/articles/"+object.slug, status: :moved_permanently
+      redirect_to "/"+object.slug, status: :moved_permanently
     end
 end

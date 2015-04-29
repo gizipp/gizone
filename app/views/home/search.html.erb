@@ -13,7 +13,7 @@
         <h4><%= link_to article.try(:highlight).try(:title) ? article.highlight.title[0].html_safe : article.title,
           controller: "articles",
           action: "show",
-          id: article.id%></h4>
+          id: article.id %></h4>
           <p>
         <% if article.try(:highlight).try(:content) %>
           <% article.highlight.content.each do |snippet| %>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  as :user do
+    get "/masuk" => "devise/sessions#new"
+  end
+
   resources :blogs do
     resources :links do
       member do
@@ -19,6 +24,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'search' => 'home#search'
   get 'preview' => 'preview#preview'
+  get 'domain/:id' => 'blogs#show'
+  get ':id' => 'articles#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -10,8 +10,8 @@ class User
   field :encrypted_password, type: String, default: ""
 
   ## Recoverable
-  field :reset_password_token,   type: String
-  field :reset_password_sent_at, type: Time
+  # field :reset_password_token,   type: String
+  # field :reset_password_sent_at, type: Time
 
   ## Rememberable
   field :remember_created_at, type: Time
