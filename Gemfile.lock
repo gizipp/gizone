@@ -188,7 +188,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    pg (0.18.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.0)
@@ -310,7 +309,6 @@ DEPENDENCIES
   mongoid-slug
   nokogiri
   paperclip (~> 4.2)
-  pg
   quiet_assets
   rails (= 4.2.0)
   rails-assets-flat-ui
