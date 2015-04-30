@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; padding-bottom: 80px;}
+body { background-color: #fff; color: #333; }
 
 html {
       height: 100%; }
@@ -98,4 +98,8 @@ header {
 
 em {
   background: yellow;
+}
+
+.pull-down {
+  padding-top: 80px;
 }

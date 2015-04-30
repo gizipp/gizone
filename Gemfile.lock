@@ -164,6 +164,8 @@ GEM
       faraday_middleware (~> 0.9.1)
       fastimage
       nokogiri (~> 1.6)
+    metamagic (3.1.7)
+      rails (>= 3.0.0)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -305,6 +307,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   metainspector
+  metamagic
   mongoid (~> 4)!
   mongoid-paperclip
   mongoid-slug

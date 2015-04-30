@@ -66,3 +66,4 @@ gem "paperclip", "~> 4.2"
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "aws-s3", :require => "aws/s3"
 gem 'aws-sdk', '~> 1.3.4'
+gem 'metamagic'
