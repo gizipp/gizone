@@ -25,4 +25,31 @@ class Article
   field :url, type: String
 
   slug :title
+
+  def fetch_share_count(source)
+    fetcher_rule = self.url_fetcher(source)
+    self.parser(fetcher_rule[0], fetcher_rule[1], source)
+  end
+
+  def url_fetcher(source)
+    url = self.link.full_path
+    case source
+      when "twitter"
+        return ["https://cdn.api.twitter.com/1/urls/count.json?url="+url, "count"]
+      when "facebook"
+        return ["http://graph.facebook.com/?id="+url, "shares"]
+      when "pinterest"
+        return ["http://api.pinterest.com/v1/urls/count.json?callback%20&url="+url, "count"]
+    end
+  end
+
+  def parser(uri, key, source)
+    case source
+      when "pinterest"
+        json_response = open(uri).read.gsub('receiveCount(',"").gsub(')',"")
+      else
+        json_response = open(uri).read
+    end
+    share = JSON.parse(json_response)[key]
+  end
 end
