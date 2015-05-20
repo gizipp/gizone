@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get 'dashboard' => 'dashboard#index'
   get 'search' => 'home#search'
   get 'preview' => 'preview#preview'
   get 'domain/:id' => 'blogs#show'

@@ -6,10 +6,10 @@
 <div id="search-result">
   <% @articles.each do |article| %>
     <div class="row">
-      <div class="col-xs-2">
+      <div class="col-xs-12 col-sm-4 col-md-2">
         <%= image_tag id_to_thumbnail(article.id), class: 'img-responsive img-circle' %>
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-12 col-sm-8 col-md-10">
         <h4><%= link_to article.try(:highlight).try(:title) ? article.highlight.title[0].html_safe : article.title,
           controller: "articles",
           action: "show",
@@ -26,3 +26,4 @@
     </div>
   <% end %>
 </div>
+

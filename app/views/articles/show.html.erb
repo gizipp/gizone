@@ -1,23 +1,35 @@
 <%
 meta title: @article.title,
-     description: @article.desc#,
-     # keywords: %w(keyword1 keyword2 keyword3)
+     description: @article.desc
 %>
 
 <p id="notice"><%= notice %></p>
 
-<h2>
-  <%= @article.title %>
-</h2>
+<div class="container">
+  <div class="row">
+      <h1>
+        <%= @article.title %>
+      </h1>
+      </div>
+  <div class="row">
+    <div class="col-md-8">
+      <p>
+        <%= image_tag @article.img, class: 'img-responsive' %>
+      </p>
 
-<p>
-  <%= image_tag @article.img, class: 'img-responsive' %>
-</p>
+      <%= strip_tags(@article.content.truncate(300, omission: '...')) %>
+      <a href="/preview?url='+@article.link.full_path+'">(baca selengkapnya)</a>
+    </div>
+    <div class="col-md-4">
+    <%= @related.each do |article| %>
+      <h3><%= article.title %></h3>
+    <% end %>
+    </div>
+  </div>
+</div>
 
-<%= raw(@article.content.truncate(500, omission: '... <a href="'+@article.url+'">(continued)</a>')) %>
 
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Preview', '/preview?url='+@article.link.full_path %> |
-<%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', articles_path %>
+<!-- <%#= link_to 'Edit', edit_article_path(@article) %> | -->
+<!-- <%#= link_to 'Preview', '/preview?url='+@article.link.full_path %> | -->
+<!-- <%#= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> | -->
+<%#= link_to 'Back', articles_path %>

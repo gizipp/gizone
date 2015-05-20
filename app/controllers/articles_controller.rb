@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
 
   # GET /articles
   # GET /articles.json
@@ -12,6 +13,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     redirect_to_good_slug(@article) and return if bad_slug?(@article)
+    @related = Article.where(blog_id: @article.blog_id)
   end
 
   # GET /articles/new
