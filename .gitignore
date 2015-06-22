@@ -22,3 +22,8 @@ public/assets/*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+*.pem
+cookbooks/*
+Vagrantfile
+Cheffile
+Cheffile.lock
