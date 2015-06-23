@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @article = Article.find(params[:id])
     redirect_to_good_slug(@article) and return if bad_slug?(@article)
     @related = Article.where(blog_id: @article.blog_id)
   end
