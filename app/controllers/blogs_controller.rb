@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :do_crawling]
   before_action :authenticate_user!
 
   # GET /blogs
@@ -60,6 +60,18 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def do_crawling
+    @blog.fetch_links
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'Blog was successfully crawled.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def do_indexing
+    # code goes here Link.fetch_article
   end
 
   private

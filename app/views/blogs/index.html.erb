@@ -10,6 +10,7 @@
       <th>Crawled Links</th>
       <th>Whitelist Links</th>
       <th>Indexed Links</th>
+      <th>Do Crawl</th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
         <td><%= link_to blog.links_count, blog_links_path(blog) %></td>
         <td><%= blog.links.white.count %></td>
         <td><%= blog.articles.count %></td>
+        <td><%= link_to 'Crawl', do_crawling_blog_path(blog) %></td>
       </tr>
     <% end %>
   </tbody>

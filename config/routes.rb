@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
 
   resources :blogs do
+    member do
+      get 'do_crawling'
+    end
+
     resources :links do
       member do
         post 'update_whitelist'

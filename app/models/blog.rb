@@ -17,20 +17,24 @@ class Blog
     cur_object.slug_builder.to_url.split("-").reject{ |c| blacklist.include?c }.join("-")
   end
 
+  def fetch_links
+    paths = self.fetch_paths(self.inspect_webpage)
+    self.save_path(paths)
+    self.add_one_num_of_crawled if paths.uniq.count != 0
+  end
+
+  def self.fetch_links
+    self.shall_be_fetched.each do |blog|
+      blog.fetch_links
+    end
+  end
+
   def self.without_links
     @blogs_zero_links = []
     self.all.each do |blog|
       @blogs_zero_links << blog if blog.links_count == 0
     end
     return @blogs_zero_links
-  end
-
-  def self.fetch_links
-    self.shall_be_fetched.each do |blog|
-      paths = blog.fetch_paths(blog.inspect_webpage)
-      blog.save_path(paths)
-      blog.add_one_num_of_crawled if paths.uniq.count != 0
-    end
   end
 
   def self.shall_be_fetched
