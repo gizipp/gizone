@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :do_crawling]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :do_crawling, :do_indexing, :drop_indexing]
   before_action :authenticate_user!
 
   # GET /blogs
@@ -71,7 +71,21 @@ class BlogsController < ApplicationController
   end
 
   def do_indexing
-    # code goes here Link.fetch_article
+    @blog.links.white.each do |link|
+      link.fetch_article
+    end
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'Blog was successfully (re)indexed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def drop_indexing
+    @blog.articles.delete_all
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'Blog was successfully reseted.' }
+      format.json { head :no_content }
+    end
   end
 
   private

@@ -13,10 +13,14 @@ class Link
   field :blacklist, type: Boolean, default: false
   field :unreachable, type: Boolean, default: false
 
+  def fetch_article
+    self.save_articles(self.inspect_webpage, self.scrap_content) if self.is_without_article?
+  end
+
   def self.fetch_article
     self.white.each do |link|
       if link.is_without_article?
-        link.save_articles(link.inspect_webpage, link.scrap_content)
+        link.fetch_article
       else
         #reindex goes here. will be updated soon
       end

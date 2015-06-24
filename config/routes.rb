@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :blogs do
     member do
-      get 'do_crawling'
+      post 'do_crawling'
+      post 'do_indexing'
+      delete 'drop_indexing'
     end
 
     resources :links do
