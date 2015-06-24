@@ -15,6 +15,10 @@ class Article
                     :s3_host_name => 's3-ap-southeast-1.amazonaws.com',
                     :s3_credentials => File.join(Rails.root, 'config', 's3.yml')
 
+
+  scope :without_thumbnail, -> { where(thumbnail_file_size: nil) }
+  scope :without_thumbnail_public_path, -> { where(thumbnail_public_path: nil) }
+
   validates_attachment :thumbnail, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
   field :id, type: String
@@ -23,6 +27,7 @@ class Article
   field :content, type: String
   field :img, type: String
   field :url, type: String
+  field :thumbnail_public_path, type: String
 
   slug :title
 
@@ -51,5 +56,29 @@ class Article
         json_response = open(uri).read
     end
     share = JSON.parse(json_response)[key]
+  end
+
+  def self.collect_thumbnail
+    self.without_thumbnail.each do |a|
+      a.save_thumbnail
+      a.save_thumbnail_path
+    end
+  end
+
+  def self.collect_thumbnail_public_path
+    self.without_thumbnail_public_path.each do |a|
+      a.save_thumbnail if a.thumbnail_file_size.nil?
+      a.save_thumbnail_path
+    end
+  end
+
+  def save_thumbnail
+    self.thumbnail = self.img
+    self.save!
+  end
+
+  def save_thumbnail_path
+    self.thumbnail_public_path = self.thumbnail.url
+    self.save!
   end
 end
