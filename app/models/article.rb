@@ -81,4 +81,12 @@ class Article
     self.thumbnail_public_path = self.thumbnail.url
     self.save!
   end
+
+  def is_img_active?
+    Linkies.response_code(self.img)
+  end
+
+  def is_thumbnail_active?
+    Linkies.response_code(self.thumbnail.url)
+  end
 end
