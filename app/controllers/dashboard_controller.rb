@@ -3,4 +3,12 @@ class DashboardController < ApplicationController
 
   def index
   end
+
+  def reindex
+    Article.__elasticsearch__.refresh_index!
+    respond_to do |format|
+      format.html { redirect_to :back, notice: 'Reindexed!' }
+      format.json { head :no_content }
+    end
+  end
 end
