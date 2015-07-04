@@ -23,6 +23,7 @@ meta title: @article.title,
     <div class="col-md-4">
     <% @related.each do |article| %>
       <h3><a href="/articles/<%= article.id %>"><%= article.title %></a></h3>
+      <p><%= article.desc %></p>
     <% end %>
     </div>
   </div>

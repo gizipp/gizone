@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     redirect_to_good_slug(@article) and return if bad_slug?(@article)
-    @related = Article.where(blog_id: @article.blog_id)
+    @related = Article.where(blog_id: @article.blog_id).order('created_at DESC').limit(2)
   end
 
   # GET /articles/new
