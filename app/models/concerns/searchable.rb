@@ -25,7 +25,12 @@ module Searchable
           }
         },
         highlight: {
-          fields: {title: {},content: {}
+          fields: {
+            title: {},
+            content: {
+              fragment_size: 150,
+              number_of_fragments: 3
+            }
           }
         }
       })
