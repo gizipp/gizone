@@ -33,8 +33,7 @@ server '52.74.110.48', user: 'ec2-user', roles: %w{app db web}
 
 set :branch, 'live'
 set :rails_env, 'production'
-set :rvm_ruby_version, '2.2.0@global'
-
+set :rvm_ruby_version, '2.2.0@rails4'
 
 # Custom SSH Options
 # ==================
@@ -62,3 +61,5 @@ set :rvm_ruby_version, '2.2.0@global'
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+set :passenger_restart_with_touch, true

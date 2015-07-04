@@ -21,6 +21,9 @@ gem 'puma', group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
+gem 'capistrano-passenger'
 
 group :assets do
   gem 'therubyracer', platforms: :ruby

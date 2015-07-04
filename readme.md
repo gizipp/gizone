@@ -21,3 +21,8 @@ Karena 'Hahaha' ialah Cita Rasa Tangga.
 Blog/Situsku mana?
 
 Mungkin tidak berkualitas. Mungkin tidak bercita rasa tinggi. Hihihi. Atau selow, mungkin belum submit di sini.
+
+
+#SSH
+
+ssh -i gizipp.pem ec2-user@52.74.110.48
