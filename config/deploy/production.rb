@@ -33,7 +33,7 @@ server '52.74.110.48', user: 'ec2-user', roles: %w{app db web}
 
 set :branch, 'live'
 set :rails_env, 'production'
-set :rvm_ruby_version, '2.2.0@rails4'
+set :rvm_ruby_version, '2.2.0'
 
 # Custom SSH Options
 # ==================
