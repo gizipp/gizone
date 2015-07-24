@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get 'preview' => 'preview#preview'
   get 'domain/:id' => 'blogs#show'
   get ':id' => 'articles#show'
+  get '*path/:id' => 'articles#show'
+  get '*path/*path/:id' => 'articles#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
