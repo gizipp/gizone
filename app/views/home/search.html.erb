@@ -1,28 +1,19 @@
-<div class="text-right">
-  <%= paginate @articles %>
-  <p>Ditemukan <%= @articles.total_count %> artikel.</p>
+<div id="search-result">
+  <div class="row">
+  <% @articles.each do |article| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="tile">
+        <%= image_tag id_to_thumbnail(article.id), class: 'img-circle tile-image bigger-illustration' %>
+        <h4><%= link_to article.try(:highlight).try(:title) ? article.highlight.title[0].html_safe : article.title, article_path(article.id) %></h4>
+        <%= link_to 'Intip ah!', article_path(article.id), class: "btn btn-primary btn-large btn-block" %>
+        </div>
+      </div>
+  <% end %>
+    </div>
 </div>
 
-<div id="search-result">
-  <% @articles.each do |article| %>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-2">
-        <%= image_tag id_to_thumbnail(article.id), class: 'img-responsive img-circle' %>
-      </div>
-      <div class="col-xs-12 col-sm-8 col-md-10">
-        <h4><%= link_to article.try(:highlight).try(:title) ? article.highlight.title[0].html_safe : article.title,
-          controller: "articles",
-          action: "show",
-          id: article.id %></h4>
-          <p>
-        <% if article.try(:highlight).try(:content) %>
-          <% article.highlight.content.each do |snippet| %>
-            - <%= snippet.html_safe %>..</br>
-          <% end %>
-          </p>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+<div class="text-right">
+  <p>Ditemukan <%= @articles.total_count %> artikel.</p>
+  <%= paginate @articles %>
 </div>
 

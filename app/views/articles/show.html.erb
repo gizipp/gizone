@@ -7,25 +7,33 @@ meta title: @article.title,
 
 <div class="container">
   <div class="row">
-      <h1>
-        <%= @article.title %>
-      </h1>
-      </div>
-  <div class="row">
-    <div class="col-md-8">
-      <p>
+    <div class="col-md-9">
+      <div class="tile">
         <%= image_tag @article.img, class: 'img-responsive' %>
-      </p>
-
-      <%= strip_tags(@article.content.truncate(300, omission: '...')) %>
-      <a href="/preview?url=<%= @article.link.full_path %>">(baca selengkapnya)</a>
+        <h1><%= @article.title %></h1>
+        <p>
+        <%= strip_tags(@article.content.truncate(400, omission: '...')) %>
+        </p>
+        <a href="/preview?url=<%= @article.link.full_path %>" class="btn btn-primary btn-large btn-block">Baca selengkapnya</a>
+      </div>
     </div>
-    <div class="col-md-4">
-    <% @related.each do |article| %>
-      <h3><a href="/articles/<%= article.id %>"><%= article.title %></a></h3>
-      <p><%= article.desc %></p>
-    <% end %>
+    <div class="col-md-3">
+      <div class="tile">
+        <h3>Ruang Masih Rahasia (?)</h3>
+      </div>
     </div>
+  </div>
+  <div class="row">
+      <% @related.each do |article| %>
+     <div class="col-md-3">
+        <div class="tile">
+        <%= image_tag id_to_thumbnail(article.id), class: 'img-circle tile-image bigger-illustration' %>
+        <h3><%= link_to article.title, article_path(article.id) %></h3>
+        <p><%= article.desc %></p>
+        <%= link_to 'Intip ah!', article_path(article.id), class: "btn btn-primary btn-large btn-block" %>
+        </div>
+    </div>
+      <% end %>
   </div>
 </div>
 
