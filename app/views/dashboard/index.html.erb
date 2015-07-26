@@ -1,4 +1,25 @@
-<%= link_to 'Keluar', destroy_user_session_path, method: :delete %> |
-<%= link_to 'Blogs', blogs_path %> |
-<%= link_to 'Artikel', articles_path %> |
-<%= link_to 'Reindex', reindex_path, method: :post %>
+<div class="container">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="tile">
+        <%= link_to 'Blogs', blogs_path, class: "btn btn-block btn-lg btn-primary" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="tile">
+        <%= link_to 'Artikel', articles_path, class: "btn btn-block btn-lg btn-warning" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="tile">
+        <%= link_to 'Reindex', reindex_path, method: :post, class: "btn btn-block btn-lg btn-default" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="tile">
+        <%= link_to 'Keluar', destroy_user_session_path, method: :delete, class: "btn btn-block btn-lg btn-danger" %>
+      </div>
+    </div>
+</div>
