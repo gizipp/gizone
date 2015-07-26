@@ -11,4 +11,9 @@ class DashboardController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def refresh
+    %x[rake sitemap:refresh]
+    redirect_to :back
+  end
 end

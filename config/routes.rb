@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'dashboard' => 'dashboard#index'
   post 'reindex' => 'dashboard#reindex'
+  post 'refresh' => 'dashboard#refresh'
   get 'search' => 'home#search'
   get 'preview' => 'preview#preview'
   get 'domain/:id' => 'blogs#show'
