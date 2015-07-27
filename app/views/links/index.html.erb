@@ -9,7 +9,7 @@
       <th>Whitelist</th>
       <th>Blacklist</th>
       <th>Unreachable</th>
-      <th colspan="2"></th>
+      <th colspan="2">Action</th>
     </tr>
   </thead>
 
@@ -20,7 +20,7 @@
         <td><%= check_box_tag 'whitelist', link.id, link.whitelist, id: 'whitelist_'+link.id.to_s %></td>
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
-        <td><%= link_to 'Show', blog_link_path(link.blog_id,link.id) %></td>
+        <td><%= link_to "<span class='label label-info'>Fetched</span>".html_safe, article_path(link.article.id), target: '_blank' if !link.article.nil? %></td>
         <td><%= link_to 'Edit', edit_blog_link_path(link.blog_id,link.id) %></td>
       </tr>
     <% end %>
