@@ -19,7 +19,13 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="tile">
-        <%= link_to 'Refresh Sitemap', refresh_path, method: :post, class: "btn btn-block btn-lg btn-warning" %>
+        <%= link_to 'Recreate Sitemap', recreate_sitemap_path, method: :post, class: "btn btn-block btn-lg btn-warning" %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="tile">
+        <%= link_to 'Refresh Sitemap', refresh_sitemap_path, method: :post, class: "btn btn-block btn-lg btn-warning" %>
       </div>
     </div>
 

@@ -12,7 +12,13 @@ class DashboardController < ApplicationController
     end
   end
 
-  def refresh
+  def recreate_sitemap
+    %x[rake sitemap:clean]
+    %x[rake sitemap:create]
+    redirect_to :back
+  end
+
+  def refresh_sitemap
     %x[rake sitemap:refresh]
     redirect_to :back
   end
