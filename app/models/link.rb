@@ -7,7 +7,11 @@ class Link
   belongs_to :blog
   has_one :article
   scope :white, -> { where(whitelist: true) }
-
+  scope :not_black, -> { where(blacklist: false) }
+  scope :clean, -> { where(:path.nin => ["/",/^\/category\//i,/^\/tag\//i,/^\/page\//i,
+                                          /^\/feed\//i,/^\/rss\//i,/^\/author\//i,
+                                          /^\/feeds\//i,/^\/search/i,/_archive./i,
+                                          /^\/about\//i]) }
   field :path, type: String
   field :whitelist, type: Boolean, default: false
   field :blacklist, type: Boolean, default: false

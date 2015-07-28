@@ -18,6 +18,7 @@
       <tr>
         <td><%= link_to link.path, 'http://'+link.blog.domain+link.path %></td>
         <td><%= check_box_tag 'whitelist', link.id, link.whitelist, id: 'whitelist_'+link.id.to_s %></td>
+        <td><%= check_box_tag 'blacklist', link.id, link.blacklist, id: 'blacklist_'+link.id.to_s %></td>
         <td><%= link.blacklist %></td>
         <td><%= link.unreachable %></td>
         <td><%= link_to "<span class='label label-info'>Fetched</span>".html_safe, article_path(link.article.id), target: '_blank' if !link.article.nil? %></td>
@@ -36,6 +37,13 @@
   $("[id^=whitelist]").change(function() {
       $.ajax({
         url: '/blogs/'+blog_id+'/links/'+this.value+'/update_whitelist?whitelist='+(this.checked ? 1 : 0),
+        method: "post",
+        dataType: "script"
+      })
+  });
+  $("[id^=blacklist]").change(function() {
+      $.ajax({
+        url: '/blogs/'+blog_id+'/links/'+this.value+'/update_blacklist?blacklist='+(this.checked ? 1 : 0),
         method: "post",
         dataType: "script"
       })

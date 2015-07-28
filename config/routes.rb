@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :links do
       member do
         post 'update_whitelist'
+        post 'update_blacklist'
       end
     end
   end

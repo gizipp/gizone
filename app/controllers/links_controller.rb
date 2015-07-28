@@ -1,11 +1,11 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy, :update_whitelist]
+  before_action :set_link, only: [:show, :edit, :update, :destroy, :update_whitelist, :update_blacklist]
   before_action :authenticate_user!
 
   # GET /links
   # GET /links.json
   def index
-    @links = Link.where(blog_id: Blog.find(params[:blog_id]))
+    @links = Link.clean.where(blog_id: Blog.find(params[:blog_id]))
   end
 
   # GET /links/1
@@ -55,6 +55,20 @@ class LinksController < ApplicationController
   def update_whitelist
     respond_to do |format|
       if @link.update(whitelist: params[:whitelist])
+        format.html { render :edit, notice: 'Link was successfully updated.' }
+        format.json { render :show, status: :ok, location: @link }
+      else
+        format.html { render :edit, notice: 'Link was unsuccessfully updated.' }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_blacklist
+    respond_to do |format|
+      if @link.update(blacklist: params[:blacklist])
+        @link.article.destroy
+        @link.update(whitelist: false)
         format.html { render :edit, notice: 'Link was successfully updated.' }
         format.json { render :show, status: :ok, location: @link }
       else
