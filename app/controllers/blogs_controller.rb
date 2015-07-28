@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :do_crawling, :do_indexing, :drop_indexing]
   before_action :authenticate_user!
+  after_action :reindex, only: [:do_indexing, :drop_indexing]
 
   # GET /blogs
   # GET /blogs.json

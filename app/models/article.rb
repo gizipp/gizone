@@ -31,9 +31,6 @@ class Article
 
   slug :title
 
-  after_create :reindex
-  after_destroy :reindex
-
   def fetch_share_count(source)
     fetcher_rule = self.url_fetcher(source)
     self.parser(fetcher_rule[0], fetcher_rule[1], source)
@@ -91,12 +88,5 @@ class Article
 
   def is_thumbnail_active?
     Linkies.response_code(self.thumbnail.url)
-  end
-
-  def reindex
-    self.__elasticsearch__.create_index! force: true
-    self.__elasticsearch__.refresh_index!
-
-    self.import
   end
 end

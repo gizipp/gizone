@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy, :update_whitelist, :update_blacklist]
   before_action :authenticate_user!
+  after_action :reindex, only: [:update_blacklist]
 
   # GET /links
   # GET /links.json

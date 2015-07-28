@@ -1,9 +1,6 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-  end
-
   def reindex
     Article.__elasticsearch__.create_index! force: true
     Article.__elasticsearch__.refresh_index!
