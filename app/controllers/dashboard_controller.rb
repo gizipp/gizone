@@ -5,7 +5,10 @@ class DashboardController < ApplicationController
   end
 
   def reindex
+    Article.__elasticsearch__.create_index! force: true
     Article.__elasticsearch__.refresh_index!
+
+    Article.import
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Reindexed!' }
       format.json { head :no_content }

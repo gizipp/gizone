@@ -94,5 +94,9 @@ class Article
   end
 
   def reindex
+    self.__elasticsearch__.create_index! force: true
+    self.__elasticsearch__.refresh_index!
+
+    self.import
   end
 end
