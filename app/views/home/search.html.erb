@@ -1,3 +1,5 @@
+<% desc = [] %>
+
 <div id="search-result">
   <div class="row">
   <% @articles.each do |article| %>
@@ -8,6 +10,7 @@
         <%= link_to 'Intip ah!', article_path(article.id), class: "btn btn-primary btn-large btn-block" %>
         </div>
       </div>
+      <% desc << article.title.gsub('.','').gsub('?','') %>
   <% end %>
     </div>
 </div>
@@ -17,3 +20,8 @@
   <%= paginate @articles %>
 </div>
 
+
+<%
+  meta title: params[:q].titleize,
+       description: desc.join(', ').humanize
+%>

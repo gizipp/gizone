@@ -1,7 +1,5 @@
-<%
-meta title: @article.title,
-     description: @article.desc
-%>
+<% desc = [] %>
+<% desc << @article.title.gsub('.','').gsub('?','') %>
 
 <p id="notice"><%= notice %></p>
 
@@ -24,21 +22,21 @@ meta title: @article.title,
     </div>
   </div>
   <div class="row">
-      <% @related.each do |article| %>
-     <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="tile">
-        <%= image_tag id_to_thumbnail(article.id), class: 'img-circle tile-image bigger-illustration' %>
-        <h3><%= link_to article.title, article_path(article.id) %></h3>
-        <p><%= article.desc %></p>
-        <%= link_to 'Intip ah!', article_path(article.id), class: "btn btn-primary btn-large btn-block" %>
-        </div>
-    </div>
-      <% end %>
+    <% @related.each do |article| %>
+       <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="tile">
+          <%= image_tag id_to_thumbnail(article.id), class: 'img-circle tile-image bigger-illustration' %>
+          <h3><%= link_to article.title, article_path(article.id) %></h3>
+          <p><%= article.desc %></p>
+          <%= link_to 'Intip ah!', article_path(article.id), class: "btn btn-primary btn-large btn-block" %>
+          </div>
+      </div>
+      <% desc << article.title.gsub('.','').gsub('?','') %>
+    <% end %>
   </div>
 </div>
 
-
-<!-- <%#= link_to 'Edit', edit_article_path(@article) %> | -->
-<!-- <%#= link_to 'Preview', '/preview?url='+@article.link.full_path %> | -->
-<!-- <%#= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> | -->
-<%#= link_to 'Back', articles_path %>
+<%
+meta title: @article.title,
+     description: desc.join(', ').humanize
+%>
