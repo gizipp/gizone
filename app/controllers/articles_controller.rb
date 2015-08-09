@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     redirect_to_good_slug(@article) and return if bad_slug?(@article)
-    @related = Article.search(@article.title).offset(1).limit(4).results
+    @related = Article.search(@article.title).offset(1).limit(2).results
   end
 
   # GET /articles/new
