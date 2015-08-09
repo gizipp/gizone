@@ -37,6 +37,21 @@
 </div>
 
 <%
-meta title: @article.title,
-     description: desc.join(', ').humanize
+  meta title: @article.title,
+       description: desc.join(', ').humanize,
+       twitter: {
+         card: "summary",
+         site: "@GIZIPP",
+         title: @article.title + ' - GIZIPP',
+         description: desc.join(', ').humanize,
+         image: id_to_thumbnail(@article.id)
+      },
+      og: {
+        type: 'website',
+        title: @article.title + ' - GIZIPP',
+        description: desc.join(', ').humanize,
+        image: @article.img,
+        url: 'http://gizipp.com',
+        site_name: 'GIZIPP'
+      }
 %>
