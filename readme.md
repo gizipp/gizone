@@ -1,7 +1,6 @@
-GIBIPP
+GIZIPP
 
-Sekedar Merayapi Konten Lokal Berkualitas Nun Cita Rasa Tinggi Hihihi
-
+Bukan mesin pencari sungguhan, merayap di kala senggang. Penyaring konten lokal berkualitas cita rasa tinggi, semoga, restui sajalah dahulu.
 
 #FAQ
 

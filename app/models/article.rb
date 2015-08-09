@@ -89,4 +89,8 @@ class Article
   def is_thumbnail_active?
     Linkies.response_code(self.thumbnail.url)
   end
+
+  def g_url
+    'http://gizipp.com/' + self.slug
+  end
 end

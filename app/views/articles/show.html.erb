@@ -12,7 +12,7 @@
         <p>
         <%= strip_tags(@article.content.truncate(400, omission: '...')) %>
         </p>
-        <a href="/preview?url=<%= @article.link.full_path %>" class="btn btn-primary btn-large btn-block">Baca selengkapnya</a>
+        <a href="/preview?url=<%= @article.url %>" class="btn btn-primary btn-large btn-block">Baca selengkapnya</a>
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
         title: @article.title + ' - GIZIPP',
         description: desc.join(', ').humanize,
         image: @article.img,
-        url: 'http://gizipp.com',
+        url: @article.g_url,
         site_name: 'GIZIPP'
       }
 %>
