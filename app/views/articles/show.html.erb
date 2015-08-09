@@ -10,7 +10,7 @@
         <%= image_tag @article.img, class: 'img-responsive' %>
         <h1><%= @article.title %></h1>
         <p>
-        <%= strip_tags(@article.content.truncate(400, omission: '...')) %>
+        <%= strip_tags(@article.content.truncate(390, omission: '...')) %>
         </p>
         <a href="/preview?url=<%= @article.url %>" class="btn btn-primary btn-large btn-block">Baca selengkapnya</a>
       </div>
@@ -22,7 +22,7 @@
           <div class="tile">
           <%= image_tag id_to_thumbnail(article.id), class: 'img-circle tile-image bigger-illustration' %>
           <h3><%= link_to article.title, article_path(article.id) %></h3>
-          <p><%= article.desc %></p>
+          <p><%= strip_tags(article.content.truncate(150, omission: '...')) %></p>
           <%= link_to 'Intip ah!', article_path(article.id), class: "btn btn-primary btn-large btn-block" %>
           </div>
       </div>
