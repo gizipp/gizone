@@ -14,17 +14,37 @@
 
  */
 
-body { background-color: #fff; color: #333; }
+body { background-color: #fff; color: #333; margin-bottom: 60px;}
 
 html {
-      height: 100%; }
+  position: relative;
+  min-height: 100%;
+}
 
-/*    body {
-      position: absolute;
-      background:white;
-      top:0; bottom:0;
-      left:0; right:0;
-    }*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
