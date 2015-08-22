@@ -1,16 +1,48 @@
-<div class="row pull-down">
-    <div class="col-lg-12">
-      <a href="http://google.com/search?q=gizipp" target="_blank"><img src="/logo.png" class="img-responsive center-block"/></a>
+<div id="fullpage">
+  <div class="section" id="section0">
+    <div class="row pull-down">
+        <div class="col-lg-12">
+          <a href="http://google.com/search?q=gizipp" target="_blank"><img src="/logo.png" class="img-responsive center-block"/></a>
+        </div>
     </div>
+
+    </br>
+    </br>
+
+    <div class="row">
+        <div class="col-lg-12">
+          <%= form_tag search_path, method: 'get' do %>
+            <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: "Iseng cari..."%>
+          <% end %>
+        </div>
+    </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-12">
+        <% @articles.each do |article| %>
+          <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img data-holder-rendered="true" src="<%= article.thumbnail %>" style="width: 64px; height: 64px;" class="media-object" data-src="<%= article.thumbnail %>" alt="64x64">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= link_to article.title.truncate(42, ommision: "..." ), article_path(article.id) %></h4>
+            <%= strip_tags(article.content.truncate(200, ommision: "..." )) %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  </div>
 </div>
 
-</br>
-</br>
-
-<div class="row">
-    <div class="col-lg-12">
-  <%= form_tag search_path, method: 'get' do %>
-        <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: "Iseng cari..."%>
-  <% end %>
-    </div>
-</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#fullpage').fullpage({
+        autoScrolling: false
+      });
+    });
+</script>
