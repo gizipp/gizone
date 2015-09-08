@@ -30,7 +30,7 @@
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><%= link_to article.title.truncate(42, ommision: "..." ), article_path(article.id) %></h4>
+            <h4 class="media-heading"><%= link_to article.title.truncate(42, ommision: "..." ), article_path(article.id), target: '_blank' %></h4>
             <%= strip_tags(article.content.truncate(200, ommision: "..." )) %>
           </div>
         </div>
