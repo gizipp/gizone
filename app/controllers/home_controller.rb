@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.all.page(params[:page]).limit(5).order("created_at DESC")
+    @articles = Article.all.page(params[:page]).limit(3).order("created_at DESC")
   end
 
   def search
