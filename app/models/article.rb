@@ -45,6 +45,8 @@ class Article
         return ["http://graph.facebook.com/?id="+url, "shares"]
       when "pinterest"
         return ["http://api.pinterest.com/v1/urls/count.json?callback%20&url="+url, "count"]
+      when "gplus"
+        return ["https://plusone.google.com/_/+1/fastbutton?url="+url, "div#aggregateCount"]
     end
   end
 
@@ -52,6 +54,9 @@ class Article
     case source
       when "pinterest"
         json_response = open(uri).read.gsub('receiveCount(',"").gsub(')',"")
+      when "gplus"
+        json_response = Nokogiri::HTML(open(uri))
+        return json_response.css(key)[0].text.to_i
       else
         json_response = open(uri).read
     end
