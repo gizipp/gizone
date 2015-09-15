@@ -27,9 +27,29 @@ class Article
   field :content, type: String
   field :img, type: String
   field :url, type: String
+  field :share_facebook, type: String
+  field :share_twitter, type: String
+  field :share_pinterest, type: String
+  field :share_gplus, type: String
   field :thumbnail_public_path, type: String
 
   slug :title
+
+  def fetch_social_signal
+    ["twitter","facebook","pinterest","gplus"].each do |signal|
+      case signal
+        when "twitter"
+          self.share_twitter = self.fetch_share_count(signal)
+        when "facebook"
+          self.share_facebook = self.fetch_share_count(signal)
+        when "pinterest"
+          self.share_pinterest = self.fetch_share_count(signal)
+        when "gplus"
+          self.share_gplus = self.fetch_share_count(signal)
+      end
+    end
+    self.save
+  end
 
   def fetch_share_count(source)
     fetcher_rule = self.url_fetcher(source)
