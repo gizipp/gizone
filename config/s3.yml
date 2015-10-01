@@ -1,7 +1,7 @@
 development:
   bucket: gizipp
-  access_key_id: AKIAIJ7DQJJWHXAF26IQ
-  secret_access_key: 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
+  access_key_id: <%= ENV['S3_KEY'] %>
+  secret_access_key: <%= ENV['S3_SECRET'] %>
 
 production:
   bucket: gizipp
