@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
+ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '~> 6.0', '>= 6.0.2.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -24,12 +25,13 @@ gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-rails'
 gem 'capistrano-rvm'
 gem 'capistrano-passenger'
+gem 'webpacker'
 
 group :assets do
-  gem 'therubyracer', platforms: :ruby
-  gem 'sass-rails', '~> 5.0'
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'uglifier', '>= 1.3.0'
+  # gem 'therubyracer', platforms: :ruby
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 group :development, :test do
@@ -37,11 +39,10 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.3.6'
-  gem 'quiet_assets'
+  gem 'spring'
 end
 
 source 'https://rails-assets.org' do
@@ -56,15 +57,16 @@ gem 'nokogiri'
 gem 'metainspector'
 gem 'whenever'
 gem 'kaminari'
-gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
-gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
+gem 'kaminari-mongoid'
+gem 'elasticsearch'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'mongoid'
 gem 'bson_ext'
 gem 'mongoid-slug'
-gem "paperclip", "~> 4.2"
-gem "mongoid-paperclip", :require => "mongoid_paperclip"
-gem "aws-s3", :require => "aws/s3"
+gem 'paperclip', '~> 4.2'
+gem 'mongoid-paperclip', require: 'mongoid_paperclip'
+gem 'aws-s3', require: 'aws/s3'
 gem 'aws-sdk', '~> 1.3.4'
 gem 'metamagic'
 gem 'sitemap_generator'

@@ -18,7 +18,10 @@ class Blog
   end
 
   def fetch_links
-    paths = self.fetch_paths(self.inspect_webpage)
+    webpage = self.inspect_webpage
+    return if webpage.nil?
+
+    paths = self.fetch_paths(webpage)
     self.save_path(paths)
     self.add_one_num_of_crawled if paths.uniq.count != 0
   end
@@ -49,16 +52,24 @@ class Blog
   end
 
   def inspect_webpage
-    @webpage = MetaInspector.new(self.domain,
-      :warn_level => :store,
-      :connection_timeout => 5, :read_timeout => 5,
-      :headers => {
-        'User-Agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2)
-                         AppleWebKit/537.36 (KHTML, like Gecko)
-                         Chrome/40.0.2214.111
-                         Safari/537.36"
-      }
-    )
+    begin
+      agents = %w(
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2)]",
+         "AppleWebKit/537.36 (KHTML, like Gecko)",
+         "Chrome/40.0.2214.111",
+         "Safari/537.36"
+      )
+
+      @webpage = MetaInspector.new(self.domain,
+        :warn_level => :store,
+        :connection_timeout => 5, :read_timeout => 5,
+        :headers => {
+          'User-Agent' => agents.sample
+        }
+      )
+    rescue
+      nil
+    end
   end
 
   def fetch_paths(webpage)

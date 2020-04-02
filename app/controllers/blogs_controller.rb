@@ -66,7 +66,7 @@ class BlogsController < ApplicationController
   def do_crawling
     @blog.fetch_links
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Blog was successfully crawled.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Blog was successfully crawled.' }
       format.json { head :no_content }
     end
   end
@@ -76,7 +76,7 @@ class BlogsController < ApplicationController
       link.fetch_article
     end
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Blog was successfully (re)indexed.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Blog was successfully (re)indexed.' }
       format.json { head :no_content }
     end
   end
@@ -84,7 +84,7 @@ class BlogsController < ApplicationController
   def drop_indexing
     @blog.articles.delete_all
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Blog was successfully reseted.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Blog was successfully reseted.' }
       format.json { head :no_content }
     end
   end

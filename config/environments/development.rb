@@ -40,4 +40,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.assets.logger = false
+
+  config.mongoid.preload_models = false
 end
