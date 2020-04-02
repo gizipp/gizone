@@ -18,7 +18,10 @@ class Link
   field :unreachable, type: Boolean, default: false
 
   def fetch_article
-    self.save_articles(self.inspect_webpage, self.scrap_content) if self.is_without_article?
+    webpage = self.inspect_webpage
+    return if webpage.nil?
+
+    self.save_articles(webpage, self.scrap_content) if self.is_without_article?
   end
 
   def self.fetch_article
@@ -32,17 +35,24 @@ class Link
   end
 
   def inspect_webpage
-    webpage = MetaInspector.new(self.full_path,
-      :warn_level => :store,
-      :connection_timeout => 5, :read_timeout => 5,
-      :headers => {
-        'User-Agent' => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2)
-                         AppleWebKit/537.36 (KHTML, like Gecko)
-                         Chrome/40.0.2214.111
-                         Safari/537.36"
-      }
-    )
-    return webpage
+    begin
+      agents = %w(
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2)]",
+         "AppleWebKit/537.36 (KHTML, like Gecko)",
+         "Chrome/40.0.2214.111",
+         "Safari/537.36"
+      )
+
+      webpage = MetaInspector.new(self.full_path,
+        :warn_level => :store,
+        :connection_timeout => 5, :read_timeout => 5,
+        :headers => {
+          'User-Agent' => agents.sample
+        }
+      )
+    rescue
+      nil
+    end
   end
 
   def scrap_content
